@@ -1,0 +1,9 @@
+enabled: true
+id: "cta"
+
+content:
+  title: "Interested in working with us?"
+  image: "images/services-web-development.png"
+  button:
+    label: "contact@leberra.com"
+    url: "mailto:contact@leberra.com"

@@ -1,0 +1,72 @@
+baseURL: "https://www.leberra.com/"
+theme: "up-business-theme"
+languageCode: "en-us"
+
+title: "Leberra LLC"
+
+# googleAnalytics: ""
+
+summaryLength: 20
+
+params:
+  title: "Leberra LLC"
+  description: "We specialize in DevOps and Cloud Engineering services, helping companies to build and operate reliable, scalable, and secure software systems."
+  images: 
+    - "images/hero-image.png"
+
+  logo: "arrow-up.png"
+
+  favicons:
+    themeColor: "#FFFFFF"
+    backgroundColor: "#FFFFFF"
+    faviconColor: "#000000"
+
+  # social:
+  #   dribbble: "#"
+  #   instagram: "#"
+  #   facebook: "#"
+  #   twitter: "#"
+
+  location:
+    - "Placeholder P.O. Box 1234, Lafayette, IN 47909"
+
+  contact:
+    - "contact@leberra.com"
+    - "+1 (623)261-0791"
+
+  copyright: "© 2023 Leberra LLC"
+
+menus:
+  main:
+    - name: "Home"
+      url: "/#hero"
+      weight: 1
+
+    - name: "About us"
+      url: "/about"
+      weight: 2
+
+  buttons:
+    - name: "contact@leberra.com"
+      url: "mailto:contact@leberra.com"
+      weight: 5
+      pre: "btn btn-primary text-light"
+
+  footer:
+    - name: "Home"
+      url: "/#hero"
+      weight: 1
+
+    - name: "About us"
+      url: "/about"
+      weight: 2
+
+# taxonomies:
+#   series: "series"
+#   tags: "tags"
+
+deployment:
+  targets:
+    - name: "s3"
+      URL: "s3://BUCKET_PLACEHOLDER?region=us-east-1&awssdk=2"
+      cloudFrontDistributionID: "CLOUDFRONT_DISTRIBUTION_ID_PLACEHOLDER"

@@ -1,0 +1,15 @@
+enabled: true
+id: "hero"
+
+content:
+  title: "Consulting for **DevOps** and **Cloud** services"
+  text: "At Leberra, we help companies to build and operate reliable, scalable, and secure software systems."
+
+  buttonPrimary:
+    label: "How we work"
+    url: "/about"
+
+  buttonSecondary:
+    label: "contact@leberra.com"
+    url: "mailto:contact@leberra.com"
+
