@@ -32,11 +32,11 @@ jobs:
         working-directory: ./site
 
     steps:
-      - name: Echo out some of the inputs
-        run: |
-          echo "Target environment: ${{ inputs.target-env }}"
-          echo "AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}"
-          echo "AWS_CLOUDFRONT_DISTRIBUTION_ID: ${{ inputs.AWS_CLOUDFRONT_DISTRIBUTION_ID }}"
+      # - name: Echo out some of the inputs
+      #   run: |
+      #     echo "Target environment: ${{ inputs.target-env }}"
+      #     echo "AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}"
+      #     echo "AWS_CLOUDFRONT_DISTRIBUTION_ID: ${{ inputs.AWS_CLOUDFRONT_DISTRIBUTION_ID }}"
 
       - name: Checkout
         uses: actions/checkout@v3
