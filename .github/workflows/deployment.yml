@@ -6,15 +6,6 @@ on:
       target-env:
         required: true
         type: string
-      AWS_DEFAULT_REGION:
-        required: true
-        type: string
-      AWS_S3_BUCKET:
-        required: true
-        type: string
-      AWS_CLOUDFRONT_DISTRIBUTION_ID:
-        required: true
-        type: string
     secrets:
       AWS_ACCESS_KEY_ID:
         required: true
@@ -32,12 +23,6 @@ jobs:
         working-directory: ./site
 
     steps:
-      # - name: Echo out some of the inputs
-      #   run: |
-      #     echo "Target environment: ${{ inputs.target-env }}"
-      #     echo "AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}"
-      #     echo "AWS_CLOUDFRONT_DISTRIBUTION_ID: ${{ inputs.AWS_CLOUDFRONT_DISTRIBUTION_ID }}"
-
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -62,8 +47,8 @@ jobs:
 
       - name: Load Base URL, Bucket, CloudFront Distribution ID into config
         run: |
-          sed -i "s|BUCKET_PLACEHOLDER|${{ inputs.AWS_S3_BUCKET }}|g" ./config.yaml
-          sed -i "s|CLOUDFRONT_DISTRIBUTION_ID_PLACEHOLDER|${{ inputs.AWS_CLOUDFRONT_DISTRIBUTION_ID }}|g" ./config.yaml
+          sed -i "s|BUCKET_PLACEHOLDER|${{ vars.AWS_S3_BUCKET }}|g" ./config.yaml
+          sed -i "s|CLOUDFRONT_DISTRIBUTION_ID_PLACEHOLDER|${{ vars.AWS_CLOUDFRONT_DISTRIBUTION_ID }}|g" ./config.yaml
 
       - name: Cat out config lines
         run: |

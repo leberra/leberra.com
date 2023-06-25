@@ -73,7 +73,4 @@ jobs:
     uses: ./.github/workflows/deployment.yml
     with:
       target-env: ${{ matrix.target }}
-      AWS_DEFAULT_REGION: ${{ vars.AWS_DEFAULT_REGION }}
-      AWS_S3_BUCKET: ${{ vars.AWS_S3_BUCKET }}
-      AWS_CLOUDFRONT_DISTRIBUTION_ID: ${{ vars.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
     secrets: inherit
