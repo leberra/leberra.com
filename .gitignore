@@ -7,7 +7,7 @@
 
 # Generated files by hugo
 site/public/
-site/resources/_gen/
+#site/resources/_gen/
 site/assets/jsconfig.json
 site/hugo_stats.json
 
