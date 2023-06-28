@@ -1,44 +1,27 @@
-name: Build and deploy Hugo site to S3
+name: Reusable Build and Deploy Workflow
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+  workflow_call:
     inputs:
-      logLevel:
-        description: "Log level"
+      target-env:
         required: true
-        default: "warning"
-        type: choice
-        options:
-          - info
-          - warning
-          - debug
-      #   tags:
-      #     description: "Test scenario tags"
-      #     required: false
-      #     type: boolean
-      environment:
-        description: "Environment to run tests against"
-        type: environment
+        type: string
+    secrets:
+      AWS_ACCESS_KEY_ID:
         required: true
-
-# env:
-#   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#   AWS_DEFAULT_REGION: ${{ vars.AWS_DEFAULT_REGION }}
-#   AWS_S3_BUCKET: ${{ vars.AWS_S3_BUCKET }}
-#   AWS_CLOUDFRONT_DISTRIBUTION_ID: ${{ vars.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+      AWS_SECRET_ACCESS_KEY:
+        required: true
 
 jobs:
-  build:
-    name: Build
+  build-deploy:
+    name: Build and Deploy to ${{ inputs.target-env }}
     runs-on: ubuntu-22.04
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    environment:
+      name: ${{ inputs.target-env }}
     defaults:
       run:
         working-directory: ./site
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -53,24 +36,21 @@ jobs:
           hugo-version: "latest"
           extended: true
 
+      - name: Load Base URL, Bucket, CloudFront Distribution ID into config
+        run: |
+          sed -i "s|BASE_URL_PLACEHOLDER|${{ vars.BASE_URL }}|g" ./config.yaml
+          sed -i "s|BUCKET_PLACEHOLDER|${{ vars.AWS_S3_BUCKET }}|g" ./config.yaml
+          sed -i "s|CLOUDFRONT_DISTRIBUTION_ID_PLACEHOLDER|${{ vars.AWS_CLOUDFRONT_DISTRIBUTION_ID }}|g" ./config.yaml
+
       - name: Build
         run: hugo --minify
 
-      - name: Tar public folder
-        run: tar -zcvf public.tar.gz public
+      - name: Cat out config lines
+        run: |
+          cat ./config.yaml | grep -E 'baseURL|s3://|cloudFrontDistributionID'
 
-      - uses: actions/upload-artifact@v3
-        with:
-          name: site
-          path: site/public.tar.gz
-
-  deploy:
-    needs: build
-    strategy:
-      fail-fast: true
-      matrix:
-        target: [Development, Production]
-    uses: ./.github/workflows/deployment.yml
-    with:
-      target-env: ${{ matrix.target }}
-    secrets: inherit
+      - name: Deploy
+        run: hugo deploy --maxDeletes -1 --invalidateCDN
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

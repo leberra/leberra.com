@@ -1,0 +1,32 @@
+name: Build and deploy Hugo site to S3
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: "Log level"
+        required: true
+        default: "warning"
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
+      environment:
+        description: "Environment to run tests against"
+        type: environment
+        required: true
+
+jobs:
+  build-deploy:
+    strategy:
+      fail-fast: true
+      matrix:
+        target: [Development, Production]
+    uses: ./.github/workflows/build-deploy.yml
+    with:
+      target-env: ${{ matrix.target }}
+    secrets: inherit

@@ -1,4 +1,4 @@
-baseURL: "https://www.leberra.com/"
+baseURL: "BASE_URL_PLACEHOLDER"
 theme: "up-business-theme"
 languageCode: "en-us"
 
