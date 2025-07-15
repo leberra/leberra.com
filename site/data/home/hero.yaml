@@ -2,14 +2,13 @@ enabled: true
 id: "hero"
 
 content:
-  title: "Consulting for **DevOps** and **Cloud** services"
-  text: "At Leberra, we help companies to build and operate reliable, scalable, and secure software systems."
+  title: "Cloud-Native Platforms, Built for **Resilience** and **Security**."
+  text: "Leveraging my background in DevOps and network security, I design and build secure, high-performance cloud infrastructure that gives you confidence to innovate."
 
   buttonPrimary:
-    label: "How we work"
+    label: "About Me"
     url: "/about"
 
   buttonSecondary:
     label: "contact@leberra.com"
     url: "mailto:contact@leberra.com"
-

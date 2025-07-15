@@ -4,7 +4,9 @@ languageCode: "en-us"
 
 title: "Leberra | Secure Cloud-Native Consulting"
 
-# googleAnalytics: ""
+services:
+  googleAnalytics:
+    ID: ""
 
 summaryLength: 20
 

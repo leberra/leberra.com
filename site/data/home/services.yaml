@@ -2,26 +2,26 @@ enabled: true
 id: "services"
 
 content:
-  title: "Our main services"
+  title: "My Core Services"
   # text: "DevOps and Cloud Engineering"
   cards:
     - image: "images/services-web-development.png"
-      title: "Modular, Testable, and Scalable Infrastructure"
-      text: "By using Infrastructure as Code (IaC) and the best DevOps practices, we can help you to build more reliable, scalable, and secure infrastructure."
+      title: "Secure Platform Engineering"
+      text: "I build production-ready Kubernetes platforms using Infrastructure as Code (Terraform) and GitOps principles. With a security-first approach, I ensure your infrastructure is not only scalable but also resilient and secure by design."
       button:
         label: "Learn more"
         url: "/about"
 
     - image: "images/services-web-development.png"
-      title: "Cloud Migration"
-      text: "Whether you are looking to migrate your infrastructure to the cloud or to optimize your current cloud infrastructure, we can help you to achieve your goals."
+      title: "Cloud-Native Observability"
+      text: "A platform is incomplete without visibility. I implement robust observability solutions using Prometheus, Grafana, and OpenTelemetry to help you understand your systems, resolve incidents faster, and control monitoring costs."
       button:
         label: "Learn more"
         url: "/about"
 
     - image: "images/services-web-development.png"
-      title: "Continuous Integration and Continuous Delivery"
-      text: "We can help you to implement CI/CD pipelines to automate your software delivery process and to increase your team's productivity."
+      title: "Cloud Cost & Performance Optimization"
+      text: "I specialize in analyzing and optimizing cloud infrastructure and data pipelines. My goal is to help you reduce waste and lower your monthly cloud spend without sacrificing performance or reliability."
       button:
         label: "Learn more"
         url: "/about"
