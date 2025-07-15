@@ -1,7 +1,8 @@
 ---
-title: 'Our Difference'
-button: 'About us'
+title: 'My Difference: Security in Every Layer'
+button: 'About Me'
 weight: 2
 ---
 
-Lorem ipsum dolor sit amet, et essent mediocritatem quo, choro volumus oporteat an mei. Ipsum dolor sit amet, et essent mediocritatem quo.
+I'm not just a DevOps consultant; I'm a platform engineer with a background in network security. I build cloud-native
+systems with a security-first mindset, ensuring your infrastructure is robust, resilient, and ready for the future.

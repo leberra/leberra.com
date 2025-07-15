@@ -2,7 +2,7 @@ baseURL: "BASE_URL_PLACEHOLDER"
 theme: "up-business-theme"
 languageCode: "en-us"
 
-title: "Leberra LLC"
+title: "Leberra | Secure Cloud-Native Consulting"
 
 # googleAnalytics: ""
 
@@ -10,7 +10,7 @@ summaryLength: 20
 
 params:
   title: "Leberra LLC"
-  description: "We specialize in DevOps and Cloud Engineering services, helping companies to build and operate reliable, scalable, and secure software systems."
+  description: "A specialized consultancy founded by Garrett Leber. I build secure, scalable Kubernetes platforms and implement cost-effective cloud-native observability solutions, leveraging a unique background in DevOps and network security."
   images: 
     - "images/hero-image.png"
 
@@ -28,13 +28,13 @@ params:
   #   twitter: "#"
 
   location:
-    - "Placeholder P.O. Box 1234, Lafayette, IN 47909"
+    - "Lafayette, IN"
 
   contact:
     - "contact@leberra.com"
     - "+1 (623)261-0791"
 
-  copyright: "© 2023 Leberra LLC"
+  copyright: "© 2025 Leberra LLC"
 
 menus:
   main:
@@ -42,7 +42,7 @@ menus:
       url: "/#hero"
       weight: 1
 
-    - name: "About us"
+    - name: "About Me"
       url: "/about"
       weight: 2
 
@@ -57,7 +57,7 @@ menus:
       url: "/#hero"
       weight: 1
 
-    - name: "About us"
+    - name: "About Me"
       url: "/about"
       weight: 2
 
